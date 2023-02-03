@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-signin',
@@ -9,8 +10,14 @@ import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/form
 export class SigninComponent {
     title = 'WebPortal';
     angForm!: FormGroup;
-     constructor(private fb: FormBuilder) {
+     constructor(private fb: FormBuilder, private http: HttpClient) {
       this.createForm();
+    }
+    insert(){
+      let body = this.angForm.value
+      this.http.post('http://localhost:3000/users/newUser',body).subscribe(res=>{
+        console.log(res);
+      })
     }
      createForm() {
       this.angForm = this.fb.group({
