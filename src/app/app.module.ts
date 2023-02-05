@@ -5,25 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
-// import { ContactusComponent } from './contactus/contactus.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactusComponent } from './contactus/contactus.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
-    // ContactusComponent,
     FooterComponent,
     NavbarComponent,
-    AboutusComponent
+    AboutusComponent,
+    ContactusComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
