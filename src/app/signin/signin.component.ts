@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup,  FormBuilder,  Validators, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup,  FormBuilder,  Validators, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
@@ -13,8 +13,10 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
   styleUrls: ['./signin.component.css']
 })
 
+
 export class SigninComponent {
-    title = 'WebPortal';
+    alert:boolean=false
+    title = 'ASAP Services Ltd';
     angForm!: FormGroup;
      constructor(private fb: FormBuilder, public http: HttpClient) {
       this.createForm();
@@ -36,6 +38,13 @@ export class SigninComponent {
           console.log(res);
         }
       })
+
+      this.alert=true
+      this.angForm.reset({})
+    }
+
+    closeAlert() {
+      this.alert=false
     }
  
     
@@ -47,5 +56,18 @@ export class SigninComponent {
          email: ['']
       });
     }
+
   }
 
+  
+
+  // export class SigninComponent implements OnInit {
+  
+  //   formSubmitted() {
+  //     this.submitted = true;
+  //     notify({ message: "form submitted" }, "success", 2000);
+  //   }
+  
+  //   ngOnInit() {
+  //   }
+  // }

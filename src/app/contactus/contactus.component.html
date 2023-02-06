@@ -1,19 +1,61 @@
-<div class="row" style="height:40vh">
-    <div class="col-4 d-flex justify-content-center align-items-center">
-        <div>Contact Details {{name}}</div>
-    </div>
-    <div class="col-4">
-        <h2>Contact Form</h2>
-        <!-- <form> -->
-            <div>
-                <label>Name</label><input [(ngModel)]="name"><br>
-                <label>Email</label><input [(ngModel)]="email"><br>
-                <label>Mobile</label><input [(ngModel)]="mobile"><br>
-                <button (click)="submit()">Submit</button>
-            </div>
-        <!-- </form> -->
-    </div>
-    <div class="col-4">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.6521689271162!2d73.9083955502136!3d18.544614073217122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1e16b036a6f%3A0xc3dac16c5a2e3e8!2sBajaj%20Finserv%20Direct%20Limited!5e0!3m2!1sen!2sin!4v1673937450001!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<div class="container">
+    <div><h1>Contact Us</h1></div>
+    <br />
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Thank you!</strong> You will be contacted by our executive soon :)
+		<button (click)="closeAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>
+    <div class="row">
+        <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5741.356881048123!2d73.906812033096!3d18.54467464454596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1e16b036a6f%3A0xc3dac16c5a2e3e8!2sBajaj%20Finserv%20Direct%20Limited!5e0!3m2!1sen!2sin!4v1675605265807!5m2!1sen!2sin" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <br/>
+        <div class="col-md">
+            
+            <form class="my-form" [formGroup]="angForm1" novalidate>
+                <div class="form-group">
+                    <label for="form-name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="form-name" placeholder="Name"><br>
+                </div>
+                <div *ngIf="angForm1.controls['name'].invalid && (angForm1.controls['name'].dirty || angForm1.controls['name'].touched)" 
+		            class="alert alert-danger">
+			    <div *ngIf="angForm1.controls['name'].errors">
+				    Name is required.
+			    </div>
+		        </div>
+
+
+                <div class="form-group">
+                    <label for="form-email">Email Address</label>
+                    <input type="email" formControlName="email" class="form-control" id="form-email" placeholder="Email Address"><br>
+                </div>
+                <div *ngIf="angForm1.controls['email'].invalid && (angForm1.controls['email'].dirty || angForm1.controls['email'].touched)" 
+		            class="alert alert-danger">
+			    <div *ngIf="angForm1.controls['email'].errors">
+			        Email is required.
+			    </div>
+		        </div>
+
+
+                <div class="form-group">
+                    <label for="form-tel">Contact No.</label>
+                    <input type="text" formControlName="contact" class="form-control" id="form-contact" placeholder="Contact No."><br>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="form-subject">Subject</label>
+                    <input type="text" formControlName="subject" class="form-control" id="form-subject" placeholder="You would like to contact us related to"><br>
+                </div>
+
+                <button (click)="send()"  class="btn btn-success">
+			        Submit
+		         </button>           
+            </form>
+        </div>
     </div>
 </div>
+
+
+

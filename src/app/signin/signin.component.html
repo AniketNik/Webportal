@@ -1,7 +1,11 @@
-<div class="container" id="form-reactive">
+<br><div class="container" id="form-reactive">
 	<h1>
-	  Welcome to {{title}}!!
+	  Welcome to {{title}}!
 	</h1>
+	<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Thank you!</strong> Your data has been registered.
+		<button (click)="closeAlert()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>
 	<div class="row" id="row-form">
 	<div class="col-12 col-md-4" id="form-div">
 	<form [formGroup]="angForm" novalidate><br>
@@ -56,9 +60,9 @@
 		  <label>Services Required: </label>
 		  <select class="form-control" name="s" formControlName="services">
 			<option value="">~Select~</option>
-			<option value="job">Job Related</option>
-			<option value="ourservices">Our Services</option>
-			<option value="others">Others</option>
+			<option value="Job Related">Job Related</option>
+			<option value="Our services">Our Services</option>
+			<option value="Others">Others</option>
 		</select><br>
 		</div>
   
@@ -71,8 +75,8 @@
   
 	</form>
 	<br />
-	<p>Form values: {{ angForm.value | json }}</p>
-	<p>Form status: {{ angForm.status  | json}}</p>
+	<!-- <p>Form values: {{ angForm.value | json }}</p>
+	<p>Form status: {{ angForm.status  | json}}</p> -->
   </div>
   
 </div>
