@@ -3,7 +3,7 @@ import { FormGroup,  FormBuilder,  Validators, FormControl} from '@angular/forms
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -58,16 +58,3 @@ export class SigninComponent {
     }
 
   }
-
-  
-
-  // export class SigninComponent implements OnInit {
-  
-  //   formSubmitted() {
-  //     this.submitted = true;
-  //     notify({ message: "form submitted" }, "success", 2000);
-  //   }
-  
-  //   ngOnInit() {
-  //   }
-  // }
